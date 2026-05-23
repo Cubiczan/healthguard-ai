@@ -14,17 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Convergence — Post-Merger Integration Intelligence Platform",
-  description: "CHP-governed multi-agent Convergence for M&A finance integration. Built on DigitalOcean: App Platform + Managed PostgreSQL + Spaces.",
-  keywords: ["Convergence", "M&A", "PMI", "Integration", "CHP", "CFO", "DigitalOcean", "multi-agent"],
-  authors: [{ name: "cubiczan" }],
+  title: "MetaComp Vision X — Crypto Compliance Dashboard",
+  description: "Enterprise-grade AML/KYT compliance screening powered by multi-vendor intelligence",
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
-  },
-  openGraph: {
-    title: "Convergence — PMI Intelligence Platform",
-    description: "Post-Merger Integration Intelligence Platform",
-    type: "website",
   },
 };
 
@@ -34,9 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100`}
       >
         {children}
         <Toaster />
