@@ -1,279 +1,196 @@
-# CFO Resilience Matrix
+# HealthGuard AI
 
-**6-Layer AI Agent Resilience for CFO Operations**
+> AI healthcare navigator connecting underserved patients with clinical insights, vitals monitoring, and real-time alerts — powered by Gemini with multi-model orchestration.
 
-[![153 tests passing](https://img.shields.io/badge/tests-153%20passing-brightgreen)](tests/)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml)
-[![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-orange)](LICENSE)
+[![Built with Gemini](https://img.shields.io/badge/powered%20by-Gemini-4285F4?logo=google&logoColor=white)](https://www.geminixprize.com)
+[![XPRIZE 2026](https://img.shields.io/badge/XPRIZE-2026%20Build%20with%20Gemini-1a73e8)](https://xprize.devpost.com)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-![Thumbnail](docs/thumbnail.png)
+![HealthGuard AI Thumbnail](docs/thumbnail.png)
 
 ---
 
 ## The Problem
 
-AI agents powering enterprise finance operations face constant infrastructure chaos:
+Healthcare inaccessibility is a daily crisis. In the U.S. alone:
 
-- **LLM provider outages** — OpenAI, Claude, or Gemini go down without warning
-- **Rate limiting** — API brownouts throttle critical decision-making workflows
-- **MCP server errors** — Tool-calling infrastructure fails mid-execution
-- **Network partitions** — Intermittent connectivity breaks gateway connections
-- **Cascading failures** — One provider's outage triggers overload on fallbacks
+- **45 million** people live without health insurance
+- **100 million+** are underinsured, delaying or skipping necessary care
+- **26 days** average wait time to see a primary care physician
+- Rural areas face wait times stretching into **months**
 
-When these failures hit, most agent systems either **crash** or **return garbage responses** — neither is acceptable when a CFO is waiting for a cash-flow analysis or compliance risk assessment.
+For a single mother noticing her child's persistent fever at midnight, or an elderly patient experiencing irregular heart palpitations on a Sunday, the gap between noticing a symptom and receiving clinical guidance can be insurmountable. People turn to Dr. Google, fall down WebMD rabbit holes, and either panic over benign conditions or dismiss genuinely dangerous warning signs.
 
 ## Our Solution
 
-**CFO Resilience Matrix** wraps every LLM call through a **6-layer resilience stack** built on top of [TrueFoundry's AI Gateway](https://docs.truefoundry.com/gateway/docs/ai-gateway), ensuring that CFO agents **degrade gracefully** instead of failing catastrophically.
+**HealthGuard AI** is a Gemini-powered clinical decision support platform that gives patients and frontline health workers instant access to intelligent health monitoring — no appointment needed.
 
 ```
-┌──────────────┐   ┌───────────┐   ┌────────────┐   ┌───────────────┐   ┌────────────────┐   ┌─────────────────┐
-│ 1. GATEWAY   │──▶│ 2. PARITY │──▶│3. GOVERNANCE│──▶│4. STATE MACHINE│──▶│5. USER EXPERIENCE│──▶│6. DATA CURATION │
-│  (failover)  │   │ (quality) │   │   (PII)    │   │  (CHP states) │   │  (degradation)  │   │ (log + diagnose) │
-└──────────────┘   └───────────┘   └────────────┘   └───────────────┘   └────────────────┘   └─────────────────┘
+┌──────────────┐     ┌─────────────┐     ┌──────────────┐     ┌──────────────┐
+│   PATIENT     │────▶│  VITALS     │────▶│  AUTO-ALERT  │────▶│  GEMINI AI   │
+│   DATA        │     │  MONITORING │     │  ENGINE      │     │  ASSISTANT   │
+│              │     │  (Charts)   │     │  (Real-time) │     │  (Chat)      │
+└──────────────┘     └─────────────┘     └──────────────┘     └──────────────┘
+                                                                  │
+                                                                  ▼
+                                                           ┌──────────────┐
+                                                           │  CLINICAL    │
+                                                           │  GUIDANCE    │
+                                                           │  + ACTIONS   │
+                                                           └──────────────┘
 ```
 
-### Layer 1: Gateway — Provider Failover
-Routes requests through the TrueFoundry AI Gateway with automatic failover across multiple LLM providers. Exponential backoff with full jitter (3 retries, 100ms base). Per-provider health tracking with consecutive-error circuit breakers.
+### Core Capabilities
 
-### Layer 2: Parity — Cross-Model Quality Comparison
-Runs a parity check against a second model and compares response quality using domain-specific key-phrase density, structural scoring, and length normalization. Detects model drift and contradictory outputs in real time.
+**Real-Time Vitals Monitoring** — Track heart rate, blood pressure, SpO2, and temperature with interactive charts and trend analysis.
 
-### Layer 3: Governance — PII & Content Safety
-Scans every response for 9 categories of PII (SSN, email, phone, credit card, account numbers, routing numbers, dates of birth, addresses). Excessive PII triggers a full block; minor detections are redacted in-place.
+**Automatic Clinical Alerting** — Every vitals reading is evaluated against evidence-based clinical thresholds. Abnormal values trigger severity-graded alerts (critical / warning / informational) instantly.
 
-### Layer 4: State Machine — CHP Decision Lifecycle
-Manages agent decisions through a formal state machine (`EXPLORING → PROVISIONAL → LOCKED`), with `HALT` and `RECOVER` states for degraded conditions. Confidence and degradation levels drive state transitions automatically.
+**Gemini-Powered AI Health Assistant** — Ask questions in natural language and receive clinically-informed responses that cross-reference patient history, conditions, medications, and vitals trends. Quick actions for health summaries and alert reviews.
 
-### Layer 5: User Experience — Graceful Degradation
-Formats the final response with degradation notices at two levels (reduced confidence vs. significant degradation), structured resilience metadata, and actionable guidance for the end user.
+**Patient Management** — Structured records for demographics, conditions, medications, and complete vitals history per patient.
 
-### Layer 6: Data Curation — Observability & Continuous Learning
-Observes every inference passively without blocking responses. Collects structured logs (prompts, responses, confidence, latency, verdict), diagnoses failures via a 13-category taxonomy (hallucination, PII leak, timeout cascade, quality degradation, state halt, rate limited, provider outage, MCP failure, cascading failure, empty response, content blocked, low confidence, unknown), and curates training datasets for fine-tuning via [axolotl](https://github.com/OpenAccess-AI-Collective/axolotl) or [unsloth](https://github.com/unslothai/unsloth). Inspired by [Pioneer Agent](https://arxiv.org/abs/2407.21343)'s closed-loop adaptation pattern.
+## Live Demo
 
-## Demo
+| Tab | Description |
+|-----|-------------|
+| **Dashboard** | Stats overview, heart rate trends, alert severity breakdown, recent activity |
+| **AI Assistant** | Full Gemini chat with patient context, quick actions, health summaries |
+| **Patients** | Patient cards, vitals history charts, add patients and readings |
+| **Alerts** | Filterable alert list (critical/warning/info), acknowledge, sort by severity |
 
-[![Watch the 3-minute demo](docs/thumbnail.png)](docs/demo-3min.mp4)
+### Seeded Demo Data
 
-**Click the thumbnail above to watch the 3-minute demo video**, or run it locally:
-
-```bash
-# Install dependencies
-pip install httpx pytest
-
-# Run the full demo (all 7 chaos scenarios)
-PYTHONPATH=src python demo.py
-
-# Run a single scenario
-PYTHONPATH=src python demo.py --scenario provider_down
-
-# Fast mode (skip slow scenarios)
-PYTHONPATH=src python demo.py --fast
-
-# JSON output for CI/CD
-PYTHONPATH=src python demo.py --scenario none --json
-```
-
-### Chaos Scenarios Demonstrated
-
-| Scenario | What Simulates | Resilience Response |
-|----------|---------------|-------------------|
-| **Provider Down** | Primary LLM returns 503 | Failover to fallback models |
-| **Intermittent Errors** | Random 500/502 at 40% rate | Retry with exponential backoff |
-| **Rate Limited** | HTTP 429 every 3rd call | Backoff + retry + provider rotation |
-| **MCP Server Error** | Tool-call timeouts at 50% | Graceful degradation, cached responses |
-| **Cascading Failure** | Provider fails repeatedly | Circuit-breaker pattern + recovery |
-| **Full Outage** | Complete outage for 20 calls | Auto-recovery after threshold |
-| **None (Clean)** | Normal operation | Full 6-layer validation |
+| Patient | Profile | Key Condition | Alerts |
+|---------|---------|---------------|--------|
+| Sarah Johnson | 34F | Hypertension | Elevated BP trending above 140 systolic |
+| Marcus Chen | 58M | Type 2 Diabetes + CAD | Critical fasting glucose spike |
+| Elena Rodriguez | 72F | COPD + Atrial Fibrillation | Low SpO2 episodes below 92% |
 
 ## Architecture
 
 ```
 src/
-├── __init__.py                 # Package docstring + quick start
-├── gateway/
-│   ├── __init__.py
-│   └── client.py               # TrueFoundry AI Gateway client (httpx)
-│                                 - Retry with exponential backoff
-│                                 - Provider failover chain
-│                                 - Per-provider health tracking
-│                                 - Structured event logging
-│                                 - Mock mode (no API key needed)
-├── layers/
-│   ├── __init__.py
-│   └── resilience_stack.py      # 6-layer orchestration
-│                                 - GatewayLayer (failover)
-│                                 - ParityLayer (quality comparison)
-│                                 - GovernanceLayer (PII scanning)
-│                                 - StateMachineLayer (CHP states)
-│                                 - UserExperienceLayer (degradation)
-│                                 - DataCurationLayer (log + diagnose)
-│                                 - ResilienceStack (orchestrator)
-├── curate/
-│   ├── __init__.py
-│   ├── log_collector.py          # InferenceLogCollector + InferenceLogEntry
-│   │                               - Ring-buffer (100K entries)
-│   │                               - Structured logging (16 fields)
-│   │                               - JSONL export, trainable export
-│   │                               - Disk persistence, filtering, stats
-│   ├── failure_taxonomy.py       # 13-category failure classification
-│   │                               - HALLUCINATION, PII_LEAK, TIMEOUT_CASCADE
-│   │                               - QUALITY_DEGRADATION, STATE_HALT
-│   │                               - RATE_LIMITED, PROVIDER_OUTAGE, MCP_FAILURE
-│   │                               - CASCADING_FAILURE, EMPTY_RESPONSE
-│   │                               - CONTENT_BLOCKED, LOW_CONFIDENCE, UNKNOWN
-│   │                               - Severity scoring + remediation actions
-│   ├── data_curator.py           # Training dataset builder
-│   │                               - Composite quality scoring
-│   │                               - Deduplication via content hashing
-│   │                               - Train/eval/regression/failure splits
-│   │                               - JSONL export for axolotl & unsloth
-│   ├── finetune_pipeline.py      # Fine-tuning config generator
-│   │                               - axolotl YAML config (4 base models)
-│   │                               - unsloth SFTTrainer Python script
-│   │                               - Dockerfile (unsloth/unsloth:latest)
-│   │                               - Run commands (install/train/test)
-│   └── curate_layer.py           # Layer 6: observational, never blocks
-├── agents/
-│   ├── __init__.py
-│   └── cfo_agents.py            # 3 CFO-specialized agents
-│                                 - FinanceAgent (cash flow, runway)
-│                                 - StrategyAgent (competitive moat)
-│                                 - ComplianceAgent (regulatory risk)
-│                                 - AgentResult (structured output)
-├── chaos/
-│   ├── __init__.py
-│   └── engine.py                # Chaos engineering engine
-│                                 - 7 fault-injection scenarios
-│                                 - httpx monkey-patching
-│                                 - Deterministic seed for reproducibility
-│                                 - Per-scenario statistics
-tests/
-├── __init__.py
-├── test_gateway.py              # 19 tests — client, health, metrics
-├── test_resilience_stack.py     # 30 tests — all 6 layers + stack
-├── test_chaos.py                # 22 tests — all 7 scenarios
-├── test_agents.py               # 12 tests — agents + factory
-└── test_curate.py               # 70 tests — log, taxonomy, curator,
-                                  #             finetune, layer 6
-demo.py                          # Demo runner
+├── app/
+│   ├── page.tsx                          # 4-tab SPA (Dashboard, AI, Patients, Alerts)
+│   ├── layout.tsx                        # Root layout with metadata
+│   ├── globals.css                       # Teal/emerald healthcare theme
+│   └── api/
+│       ├── chat/route.ts                 # Gemini-powered health assistant (POST)
+│       ├── patients/route.ts             # Patient CRUD (GET, POST)
+│       ├── patients/[id]/vitals/route.ts # Vitals history + auto-alerts (GET, POST)
+│       ├── alerts/route.ts               # Alert listing + acknowledge (GET, PATCH)
+│       └── dashboard/route.ts            # Aggregated stats (GET)
+├── components/
+│   └── ui/                               # shadcn/ui component library
+├── lib/
+│   ├── db.ts                             # Prisma client
+│   └── utils.ts                          # Utility functions
+└── hooks/                                # React hooks
+prisma/
+├── schema.prisma                         # Patient, VitalsReading, Alert models
+├── seed.ts                               # 3 patients, 39 vitals readings, 7 alerts
+└── custom.db                             # SQLite database
 docs/
-├── thumbnail.png                # Video thumbnail (1280x720)
-├── demo-3min.mp4                # 3-minute demo video (1920x1080)
-└── slides/                      # 8 source slides
-    ├── slide_01.png             # Title card
-    ├── slide_02.png             # Problem statement
-    ├── slide_03.png             # Architecture overview
-    ├── slide_04.png             # Layer 1: Gateway
-    ├── slide_05.png             # Layers 2-3: Parity + Governance
-    ├── slide_06.png             # Layers 4-5: State Machine + UX
-    ├── slide_07.png             # 7 Chaos Scenarios
-    └── slide_08.png             # End card + stats
+├── project-story.md                      # Devpost project story
+├── video-script.md                       # 3-minute demo video script
+└── diagrams/                             # D2 architecture diagrams
 ```
 
 ## Quick Start
 
 ### Prerequisites
-- Python 3.11 or 3.12
-- No LLM API key required (runs in mock mode by default)
+
+- Node.js 18+ and Bun
+- A Google Gemini API key (via z-ai-web-dev-sdk)
 
 ### Installation
 
 ```bash
-git clone https://github.com/Cubiczan/cfo-resilience-matrix.git
-cd cfo-resilience-matrix
-pip install httpx pytest
+git clone https://github.com/Cubiczan/healthguard-ai.git
+cd healthguard-ai
+bun install
+bun run db:push
+bun run dev
 ```
 
-### Run Tests
+The app runs on `http://localhost:3000`.
 
-```bash
-PYTHONPATH=src pytest tests/ -v
-# 153 passed in 0.60s
-```
+### Environment Setup
 
-### Run Demo
+The z-ai-web-dev-sdk handles Gemini authentication automatically. No additional `.env` configuration is required for the SDK.
 
-```bash
-# Full demo with all chaos scenarios
-PYTHONPATH=src python demo.py
+## Tech Stack
 
-# Specific scenario
-PYTHONPATH=src python demo.py -s cascading
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS 4 + shadcn/ui |
+| Charts | Recharts |
+| Animations | Framer Motion |
+| Database | Prisma ORM + SQLite |
+| AI | Google Gemini via z-ai-web-dev-sdk |
+| Icons | Lucide React |
 
-# With TrueFoundry API key (live mode)
-TFY_API_KEY=your-key-here PYTHONPATH=src python demo.py
-```
+## API Endpoints
 
-### Use as a Library
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/chat` | POST | Gemini health assistant with patient context |
+| `/api/patients` | GET | List all patients with latest vitals + alert counts |
+| `/api/patients` | POST | Create a new patient |
+| `/api/patients/[id]/vitals` | GET | Vitals history with date range filtering |
+| `/api/patients/[id]/vitals` | POST | Add vitals reading + auto-generate alerts |
+| `/api/alerts` | GET | List alerts (filterable by type/acknowledged) |
+| `/api/alerts` | PATCH | Acknowledge an alert |
+| `/api/dashboard` | GET | Aggregated dashboard statistics |
 
-```python
-from gateway.client import ResilientGatewayClient
-from agents.cfo_agents import create_agents
+## Auto-Alert Clinical Thresholds
 
-client = ResilientGatewayClient(
-    api_key="your-tfy-key",  # Or omit for mock mode
-    virtual_model="cfo-resilience/primary",
-)
+| Vital | Warning | Critical |
+|-------|---------|----------|
+| Heart Rate | > 100 or < 50 bpm | > 120 or < 40 bpm |
+| Systolic BP | > 140 mmHg | > 180 mmHg |
+| Diastolic BP | > 90 mmHg | > 120 mmHg |
+| SpO2 | < 95% | < 92% |
+| Temperature | > 100.4 F | > 103 F or < 95 F |
 
-finance, strategy, compliance, stack = create_agents(client)
+Thresholds based on AHA/ACC 2017 guidelines.
 
-# Analyze with full resilience protection
-result = finance.analyze("What is our cash runway?")
-print(result.response)
-print(result.resilience_summary())
+## XPRIZE: Build with Gemini
 
-# Inject chaos for testing
-from chaos.engine import ChaosEngine, ChaosScenario
+**Category:** Professional Services Access
 
-with ChaosEngine(scenarios=[ChaosScenario.PROVIDER_DOWN]):
-    result = strategy.analyze("Evaluate our competitive moat.")
-    print(result.verdict)  # Still ALLOW — failover handled it
-```
+> "Healthcare navigation for uninsured" — the official example use case for this category.
 
-## Failure Mode Coverage
+### Judging Criteria Alignment
 
-| Failure Mode | Conventional Agent | CFO Resilience Matrix |
-|-------------|-------------------|----------------------|
-| LLM server down | Crash / timeout | **Gateway failover** to fallback model |
-| OpenAI brownout | 429 error propagated to user | **Exponential backoff** + provider rotation |
-| Claude errors out | Request fails silently | **Failover chain** tries next provider |
-| MCP server errors | Tool call hangs forever | **Timeout + degradation** with cached response |
-| Cascading outages | All agents stop working | **Circuit breaker** + auto-recovery |
-| Response contains PII | Compliance violation | **PII detection + redaction** or block |
-| Quality degrades unnoticed | Bad decisions reach CFO | **Parity check** + confidence scoring |
-| User gets no feedback | "Something went wrong" | **Structured degradation notices** with context |
-
-## Technical Highlights
-
-- **Zero external dependencies** — Only `httpx` required (no OpenAI SDK, no LangChain, no heavy frameworks)
-- **Chaos engineering by design** — Built-in chaos engine monkey-patches `httpx.Client.request` for transparent fault injection
-- **Deterministic testing** — Seedable RNG makes chaos scenarios reproducible across runs
-- **CHP integration** — State machine layer implements the Consensus Hardening Protocol's decision lifecycle
-- **Closed-loop learning** — Data curation layer collects inference logs, classifies failures (13 categories), and curates training datasets for fine-tuning via axolotl or unsloth
-- **Pioneer-inspired adaptation** — Inspired by [Pioneer Agent](https://arxiv.org/abs/2407.21343)'s closed-loop system: Collect → Diagnose → Curate → Train → Evaluate
-- **Zero-training-footprint** — FinetunePipeline generates configs (axolotl YAML, unsloth scripts, Dockerfiles) but never runs training — keeping the core library dependency-free
-- **EGIS-ready** — Governance layer is designed to wrap EGIS AI's runtime governance SDK
-- **Mock mode** — Full demo runs without any API keys or network connectivity
-- **153 tests, 0.60s** — Comprehensive test coverage across all 6 layers + curation pipeline
+| Criterion (33.3% each) | How HealthGuard AI Delivers |
+|------------------------|---------------------------|
+| **Business Viability** | Freemium tier for patients, $29/mo pro for health workers, enterprise for clinics |
+| **AI-Native Operations** | AI actively monitors vitals, generates alerts, provides clinical analysis — not a bolted-on chatbot |
+| **Category Impact** | Directly addresses healthcare access gap for 45M+ uninsured Americans |
 
 ## Built With
 
-- **[TrueFoundry AI Gateway](https://docs.truefoundry.com/gateway/docs/ai-gateway)** — LLM routing and provider failover
-- **[EGIS AI](https://egisai.co)** — Runtime governance for AI agents (PII, content safety)
-- **[Consensus Hardening Protocol](https://github.com/Cubiczan/consensus-hardening-protocol)** — Decision lifecycle management
-- **[Multi-Agent CFO OS](https://github.com/Cubiczan/multi-agent-cfo-os)** — Agent architecture foundation
+- [Google Gemini](https://ai.google.dev/) — Primary AI intelligence layer
+- [Next.js](https://nextjs.org/) — React framework
+- [shadcn/ui](https://ui.shadcn.com/) — Component library
+- [Prisma](https://prisma.io/) — Database ORM
+- [Recharts](https://recharts.org/) — Data visualization
+- [Framer Motion](https://www.framer.com/motion/) — Animations
 
 ## Related Repos
 
 | Repository | Role |
 |-----------|------|
-| [multi-agent-cfo-os](https://github.com/Cubiczan/multi-agent-cfo-os) | Flagship multi-agent system with EGIS governance |
-| [cfo-command-center](https://github.com/Cubiczan/cfo-command-center) | Notion-integrated finance ops hub |
-| [consensus-hardening-protocol](https://github.com/Cubiczan/consensus-hardening-protocol) | Decision governance framework |
-| [resilient-agent](https://github.com/Cubiczan/resilient-agent) | Original agent resilience prototype |
-| [Pioneer Agent](https://arxiv.org/abs/2407.21343) | Inspiration for closed-loop data curation |
+| [Senso.AI Knowledge Base](https://github.com/Cubiczan/senso-ai-knowledge-base) | Medical knowledge graph |
+| [Senso Agent Runtime](https://github.com/Cubiczan/senso-agent-runtime) | Multi-model AI agent framework |
+| [CFO Resilience Matrix](https://github.com/Cubiczan/cfo-resilience-matrix) | LLM resilience patterns |
 
 ## License
 
-Apache 2.0 — see [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE)
