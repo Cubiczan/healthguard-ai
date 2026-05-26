@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MetaComp Vision X — Crypto Compliance Dashboard",
-  description: "Enterprise-grade AML/KYT compliance screening powered by multi-vendor intelligence",
+  title: "HealthGuard AI — Intelligent Healthcare Assistant",
+  description:
+    "Gemini-powered clinical decision support platform for real-time patient vitals monitoring, AI-assisted triage, and evidence-based health guidance. Built for the Build with Gemini XPRIZE Challenge.",
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },

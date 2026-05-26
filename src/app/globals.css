@@ -47,56 +47,56 @@
   --radius: 0.625rem;
   --background: oklch(0.06 0.01 260);
   --foreground: oklch(0.95 0 0);
-  --card: oklch(0.14 0.01 260);
+  --card: oklch(0.12 0.01 260);
   --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.14 0.01 260);
+  --popover: oklch(0.12 0.01 260);
   --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.92 0 0);
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.22 0.01 260);
+  --primary: oklch(0.7 0.15 170);
+  --primary-foreground: oklch(0.15 0.02 170);
+  --secondary: oklch(0.18 0.01 260);
   --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.22 0.01 260);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.22 0.01 260);
+  --muted: oklch(0.18 0.01 260);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.2 0.03 170);
   --accent-foreground: oklch(0.95 0 0);
   --destructive: oklch(0.65 0.2 25);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.5 0 0);
-  --chart-1: oklch(0.7 0.15 160);
-  --chart-2: oklch(0.7 0.12 200);
+  --ring: oklch(0.7 0.15 170);
+  --chart-1: oklch(0.7 0.15 170);
+  --chart-2: oklch(0.7 0.12 45);
   --chart-3: oklch(0.75 0.15 85);
   --chart-4: oklch(0.65 0.2 20);
   --chart-5: oklch(0.7 0.18 305);
-  --sidebar: oklch(0.12 0.01 260);
+  --sidebar: oklch(0.1 0.01 260);
   --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.7 0.15 160);
+  --sidebar-primary: oklch(0.7 0.15 170);
   --sidebar-primary-foreground: oklch(0.95 0 0);
-  --sidebar-accent: oklch(0.22 0.01 260);
+  --sidebar-accent: oklch(0.18 0.01 260);
   --sidebar-accent-foreground: oklch(0.95 0 0);
   --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: oklch(0.5 0 0);
+  --sidebar-ring: oklch(0.7 0.15 170);
 }
 
 .dark {
   --background: oklch(0.06 0.01 260);
   --foreground: oklch(0.95 0 0);
-  --card: oklch(0.14 0.01 260);
+  --card: oklch(0.12 0.01 260);
   --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.14 0.01 260);
+  --popover: oklch(0.12 0.01 260);
   --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.92 0 0);
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.22 0.01 260);
+  --primary: oklch(0.7 0.15 170);
+  --primary-foreground: oklch(0.15 0.02 170);
+  --secondary: oklch(0.18 0.01 260);
   --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.22 0.01 260);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.22 0.01 260);
+  --muted: oklch(0.18 0.01 260);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.2 0.03 170);
   --accent-foreground: oklch(0.95 0 0);
   --destructive: oklch(0.65 0.2 25);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.5 0 0);
+  --ring: oklch(0.7 0.15 170);
 }
 
 @layer base {
@@ -117,23 +117,23 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.3 0 0);
+  background: oklch(0.25 0 0);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.4 0 0);
+  background: oklch(0.35 0 0);
 }
 
-/* Pulse animation for risk indicator */
-@keyframes risk-pulse {
+/* Health pulse animation for critical alerts */
+@keyframes health-pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.4; }
 }
-.risk-pulse {
-  animation: risk-pulse 2s ease-in-out infinite;
+.health-pulse {
+  animation: health-pulse 2s ease-in-out infinite;
 }
 
-/* Smooth tab transition */
+/* Smooth tab content transition */
 .tab-enter {
   animation: tab-fade-in 0.3s ease-out;
 }
@@ -142,10 +142,16 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Background grid pattern */
+/* Subtle background grid */
 .bg-grid {
   background-image:
-    linear-gradient(oklch(1 0 0 / 3%) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 3%) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(oklch(0.7 0.15 170 / 3%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.7 0.15 170 / 3%) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Chat message markdown styling */
+.whitespace-pre-wrap a {
+  color: oklch(0.7 0.15 170);
+  text-decoration: underline;
 }
