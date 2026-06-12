@@ -67,7 +67,7 @@ The prompt that generates this entire system includes prompt engineering for Cla
 
 ## Demo Video
 
-> 🔗 [Demo Video — GitHub Releases](https://github.com/zan-maker/minescope/releases/tag/v1.0.0)
+> 🔗 [Demo Video — GitHub Releases](https://github.com/icohangar-ops/Minescope/releases/tag/v1.0.0)
 
 ---
 
@@ -75,8 +75,8 @@ The prompt that generates this entire system includes prompt engineering for Cla
 
 | Link | URL |
 |---|---|
-| **Source Code** | [github.com/zan-maker/minescope](https://github.com/zan-maker/minescope) |
-| **Demo Video** | [GitHub Releases v1.0.0](https://github.com/zan-maker/minescope/releases/tag/v1.0.0) |
+| **Source Code** | [github.com/zan-maker/minescope](https://github.com/icohangar-ops/Minescope) |
+| **Demo Video** | [GitHub Releases v1.0.0](https://github.com/icohangar-ops/Minescope/releases/tag/v1.0.0) |
 
 ---
 

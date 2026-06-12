@@ -109,7 +109,7 @@ docs/
 ### Installation
 
 ```bash
-git clone https://github.com/Cubiczan/healthguard-ai.git
+git clone https://github.com/icohangar-ops/healthguard-ai.git
 cd healthguard-ai
 bun install
 bun run db:push
@@ -189,7 +189,7 @@ Thresholds based on AHA/ACC 2017 guidelines.
 |-----------|------|
 | [Senso.AI Knowledge Base](https://github.com/Cubiczan/senso-ai-knowledge-base) | Medical knowledge graph |
 | [Senso Agent Runtime](https://github.com/Cubiczan/senso-agent-runtime) | Multi-model AI agent framework |
-| [CFO Resilience Matrix](https://github.com/Cubiczan/cfo-resilience-matrix) | LLM resilience patterns |
+| [CFO Resilience Matrix](https://github.com/icohangar-ops/cfo-resilience-matrix) | LLM resilience patterns |
 
 ## License
 

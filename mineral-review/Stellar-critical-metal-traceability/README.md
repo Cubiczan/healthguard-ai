@@ -187,7 +187,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-**Cubiczan** — [github.com/Cubiczan](https://github.com/Cubiczan)
+**Cubiczan** — [github.com/Cubiczan](https://github.com/icohangar-ops)
 
 ---
 

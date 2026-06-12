@@ -452,7 +452,7 @@ rm -rf $TMPDIR/metro-cache-*
 ## 📞 Support
 
 - **Documentation**: `/mobile/README.md`
-- **Issues**: https://github.com/zan-maker/battery-erp/issues
-- **Discussions**: https://github.com/zan-maker/battery-erp/discussions
+- **Issues**: https://github.com/icohangar-ops/battery-erp/issues
+- **Discussions**: https://github.com/icohangar-ops/battery-erp/discussions
 
 **All Q3 2026 features implemented and ready for testing!** 🎉

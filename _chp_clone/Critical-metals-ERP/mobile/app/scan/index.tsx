@@ -64,10 +64,10 @@ export default function ScanBarcode() {
       
       <View style={styles.overlay}>
         <View style={styles.scanFrame}>
-          <View style={styles.corner topLeft} />
-          <View style={styles.corner topRight} />
-          <View style={styles.corner bottomLeft} />
-          <View style={styles.corner bottomRight} />
+          <View style={[styles.corner, styles.topLeft]} />
+          <View style={[styles.corner, styles.topRight]} />
+          <View style={[styles.corner, styles.bottomLeft]} />
+          <View style={[styles.corner, styles.bottomRight]} />
         </View>
         
         <Text style={styles.scanInstruction}>

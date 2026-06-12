@@ -51,7 +51,7 @@ Complete guide for deploying Battery ERP to production.
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/zan-maker/battery-erp.git
+git clone https://github.com/icohangar-ops/battery-erp.git
 cd battery-erp
 ```
 
@@ -491,8 +491,8 @@ RATE_LIMIT_MAX_REQUESTS=100
 
 ### Support
 
-- **Documentation**: https://github.com/zan-maker/battery-erp/tree/main/docs
-- **Issues**: https://github.com/zan-maker/battery-erp/issues
+- **Documentation**: https://github.com/icohangar-ops/battery-erp/tree/main/docs
+- **Issues**: https://github.com/icohangar-ops/battery-erp/issues
 - **Email**: sam@cubiczan.com
 
 ---

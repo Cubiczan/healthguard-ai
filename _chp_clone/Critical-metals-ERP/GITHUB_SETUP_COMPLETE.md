@@ -1,6 +1,6 @@
 # 🎉 Battery ERP - GitHub Repository Complete!
 
-**Repository URL**: https://github.com/zan-maker/battery-erp
+**Repository URL**: https://github.com/icohangar-ops/battery-erp
 
 **Status**: ✅ Public Repository with Full CI/CD
 
@@ -374,8 +374,8 @@ Languages: JavaScript, TypeScript, Markdown, YAML
 
 ### Repository Links
 
-- **Code**: https://github.com/zan-maker/battery-erp
-- **Issues**: https://github.com/zan-maker/battery-erp/issues
+- **Code**: https://github.com/icohangar-ops/battery-erp
+- **Issues**: https://github.com/icohangar-ops/battery-erp/issues
 - **Discussions**: (Enable in Settings)
 - **Wiki**: (Enable in Settings)
 
@@ -441,6 +441,6 @@ Your Battery ERP repository is now:
 
 ---
 
-**Repository URL**: https://github.com/zan-maker/battery-erp
+**Repository URL**: https://github.com/icohangar-ops/battery-erp
 
 **Made with ❤️ for sustainable battery recycling**

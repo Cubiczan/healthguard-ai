@@ -259,7 +259,7 @@ Test coverage includes edge cases (zero values, min/max bounds), negative values
 
 ```bash
 # Clone the repository
-git clone https://github.com/zan-maker/critmin-oracle.git
+git clone https://github.com/icohangar-ops/critmin-oracle.git
 cd critmin-oracle
 
 # Install dependencies
@@ -359,7 +359,7 @@ CritMin Oracle is purpose-built for HashKey Chain because:
 
 ## 🔗 Links
 
-- **GitHub**: [github.com/zan-maker/critmin-oracle](https://github.com/zan-maker/critmin-oracle)
+- **GitHub**: [github.com/zan-maker/critmin-oracle](https://github.com/icohangar-ops/critmin-oracle)
 - **Contract**: Deployed on HashKey Chain Testnet (Chain ID: 133)
 - **Explorer**: [testnet-explorer.hsk.xyz](https://testnet-explorer.hsk.xyz)
 

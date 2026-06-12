@@ -62,7 +62,7 @@ Built on the [Atlassian Forge](https://developer.atlassian.com/platform/forge/) 
 
 ## Data Sources
 
-Market Radar aggregates data from CockroachDB databases maintained in a [Cubiczan](https://github.com/Cubiczan) data platform:
+Market Radar aggregates data from CockroachDB databases maintained in a [Cubiczan](https://github.com/icohangar-ops) data platform:
 
 | Database | Tables Used | Description |
 |----------|-------------|-------------|
@@ -78,13 +78,13 @@ Market Radar aggregates data from CockroachDB databases maintained in a [Cubicza
 - [Node.js](https://nodejs.org/) 20+ (LTS)
 - [Forge CLI](https://developer.atlassian.com/platform/forge/getting-started/) v10+
 - An Atlassian developer account with API token
-- (Optional) A running [db-proxy](https://github.com/Cubiczan/db-proxy) instance for live CockroachDB data
+- (Optional) A running [db-proxy](https://github.com/icohangar-ops/db-proxy) instance for live CockroachDB data
 
 ### Quick Start
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Cubiczan/market-radar.git
+git clone https://github.com/icohangar-ops/market-radar.git
 cd market-radar
 
 # 2. Install dependencies
@@ -211,9 +211,9 @@ market-radar/
 
 | Repository | Description |
 |------------|-------------|
-| [finance-cockpit](https://github.com/Cubiczan/finance-cockpit) | CFO-grade financial dashboard (Jira Project Page) |
-| [decision-brief](https://github.com/Cubiczan/decision-brief) | CFO decision briefs with adversarial rounds (Jira Project Page) |
-| [db-proxy](https://github.com/Cubiczan/db-proxy) | CockroachDB REST proxy serving all Forge apps |
+| [finance-cockpit](https://github.com/icohangar-ops/finance-cockpit) | CFO-grade financial dashboard (Jira Project Page) |
+| [decision-brief](https://github.com/icohangar-ops/decision-brief) | CFO decision briefs with adversarial rounds (Jira Project Page) |
+| [db-proxy](https://github.com/icohangar-ops/db-proxy) | CockroachDB REST proxy serving all Forge apps |
 
 ---
 

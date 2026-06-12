@@ -13,7 +13,7 @@
 
 25,000+ lines of open-source code 👇
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #OpenSource #BatteryRecycling #ERP #Sustainability #CleanTech
 ```
@@ -35,7 +35,7 @@ https://github.com/zan-maker/battery-erp
 
 Built with React Native + Expo 🚀
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #ReactNative #Mobile #IoT #Industry40
 ```
@@ -57,7 +57,7 @@ https://github.com/zan-maker/battery-erp
 
 No black box - explainable AI! 🧠
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #MachineLearning #AI #PredictiveMaintenance #Quality
 ```
@@ -81,7 +81,7 @@ Our open-source ERP makes recycling operations efficient & compliant.
 
 Join the mission 👇
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #Sustainability #ClimateAction #CircularEconomy #EV
 ```
@@ -105,7 +105,7 @@ Deploy: Docker + Kubernetes
 
 25k+ lines of open-source code!
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #NodeJS #React #TypeScript #OpenSource
 ```
@@ -130,7 +130,7 @@ Great first-contrib project! Well-documented + friendly maintainers.
 
 Start here 👇
 
-https://github.com/zan-maker/battery-erp/issues
+https://github.com/icohangar-ops/battery-erp/issues
 
 #Hacktoberfest #FirstContribution #OpenSource
 ```
@@ -151,7 +151,7 @@ Today, I'm open-sourcing it (25,000+ lines of code).
 
 Here's what it does 👇
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 ```
 
 ### Tweet 2/7
@@ -219,9 +219,9 @@ Great first-contribution project! Issues tagged "good first issue" available.
 ```
 7/7 Check it out:
 
-🔗 https://github.com/zan-maker/battery-erp
+🔗 https://github.com/icohangar-ops/battery-erp
 📺 Demo: [YouTube link]
-📖 Docs: https://github.com/zan-maker/battery-erp/tree/main/docs
+📖 Docs: https://github.com/icohangar-ops/battery-erp/tree/main/docs
 
 Questions? Drop them below! 👇
 

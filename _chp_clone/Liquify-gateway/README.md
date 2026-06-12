@@ -148,7 +148,7 @@ The architectural insight is that the data structures required to trace a minera
 ### Installation
 
 ```bash
-git clone https://github.com/Cubiczan/Liquify-gateway.git
+git clone https://github.com/icohangar-ops/liquify-gateway.git
 cd Liquify-gateway
 npm install
 ```
@@ -253,7 +253,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-**Cubiczan** — [github.com/Cubiczan](https://github.com/Cubiczan)
+**Cubiczan** — [github.com/Cubiczan](https://github.com/icohangar-ops)
 
 ---
 

@@ -129,8 +129,8 @@ Work Log:
 Stage Summary:
 - Repo: metacomp-visionx-dashboard (44 files, 3415 lines)
 - All 3 remotes live:
-  - https://github.com/Cubiczan/metacomp-visionx-dashboard
-  - https://github.com/zan-maker/metacomp-visionx-dashboard
+  - https://github.com/icohangar-ops/metacomp-visionx-dashboard
+  - https://github.com/icohangar-ops/metacomp-visionx-dashboard
   - https://codeberg.org/cubiczan/metacomp-visionx-dashboard
 ---
 Task ID: 1

@@ -56,4 +56,4 @@ Liquify Gateway was originally architected as Mineral Gateway, a critical minera
 No (not an AI Agent)
 
 ## Links
-- GitHub: https://github.com/zan-maker/liquify-gateway
+- GitHub: https://github.com/icohangar-ops/liquify-gateway

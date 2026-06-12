@@ -180,7 +180,7 @@ docs/
 ### Installation
 
 ```bash
-git clone https://github.com/Cubiczan/cfo-resilience-matrix.git
+git clone https://github.com/icohangar-ops/cfo-resilience-matrix.git
 cd cfo-resilience-matrix
 pip install httpx pytest
 ```
@@ -261,17 +261,17 @@ with ChaosEngine(scenarios=[ChaosScenario.PROVIDER_DOWN]):
 
 - **[TrueFoundry AI Gateway](https://docs.truefoundry.com/gateway/docs/ai-gateway)** — LLM routing and provider failover
 - **[EGIS AI](https://egisai.co)** — Runtime governance for AI agents (PII, content safety)
-- **[Consensus Hardening Protocol](https://github.com/Cubiczan/consensus-hardening-protocol)** — Decision lifecycle management
-- **[Multi-Agent CFO OS](https://github.com/Cubiczan/multi-agent-cfo-os)** — Agent architecture foundation
+- **[Consensus Hardening Protocol](https://github.com/icohangar-ops/consensus-hardening-protocol)** — Decision lifecycle management
+- **[Multi-Agent CFO OS](https://github.com/icohangar-ops/multi-agent-cfo-os)** — Agent architecture foundation
 
 ## Related Repos
 
 | Repository | Role |
 |-----------|------|
-| [multi-agent-cfo-os](https://github.com/Cubiczan/multi-agent-cfo-os) | Flagship multi-agent system with EGIS governance |
-| [cfo-command-center](https://github.com/Cubiczan/cfo-command-center) | Notion-integrated finance ops hub |
-| [consensus-hardening-protocol](https://github.com/Cubiczan/consensus-hardening-protocol) | Decision governance framework |
-| [resilient-agent](https://github.com/Cubiczan/resilient-agent) | Original agent resilience prototype |
+| [multi-agent-cfo-os](https://github.com/icohangar-ops/multi-agent-cfo-os) | Flagship multi-agent system with EGIS governance |
+| [cfo-command-center](https://github.com/icohangar-ops/cfo-command-center) | Notion-integrated finance ops hub |
+| [consensus-hardening-protocol](https://github.com/icohangar-ops/consensus-hardening-protocol) | Decision governance framework |
+| [resilient-agent](https://github.com/icohangar-ops/resilient-agent) | Original agent resilience prototype |
 | [Pioneer Agent](https://arxiv.org/abs/2407.21343) | Inspiration for closed-loop data curation |
 
 ## License

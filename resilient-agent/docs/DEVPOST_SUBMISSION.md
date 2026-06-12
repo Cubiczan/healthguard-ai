@@ -40,17 +40,17 @@ The architecture uses a planner-orchestrator pattern: a Claude Sonnet orchestrat
 - Docker + Docker Compose
 
 ## Demo Video
-https://github.com/zan-maker/resilient-agent/blob/main/docs/video/ResilientAgent_Demo.mp4
+https://github.com/icohangar-ops/resilient-agent/blob/main/docs/video/ResilientAgent_Demo.mp4
 
 ## Screenshots
-- Dashboard: https://github.com/zan-maker/resilient-agent/blob/main/docs/screenshots/dashboard.png
-- Chaos Simulation: https://github.com/zan-maker/resilient-agent/blob/main/docs/screenshots/chaos_simulation.png
-- Architecture: https://github.com/zan-maker/resilient-agent/blob/main/docs/screenshots/architecture.png
-- API Docs: https://github.com/zan-maker/resilient-agent/blob/main/docs/screenshots/api_docs.png
+- Dashboard: https://github.com/icohangar-ops/resilient-agent/blob/main/docs/screenshots/dashboard.png
+- Chaos Simulation: https://github.com/icohangar-ops/resilient-agent/blob/main/docs/screenshots/chaos_simulation.png
+- Architecture: https://github.com/icohangar-ops/resilient-agent/blob/main/docs/screenshots/architecture.png
+- API Docs: https://github.com/icohangar-ops/resilient-agent/blob/main/docs/screenshots/api_docs.png
 
 ## Try It Out
 ```bash
-git clone https://github.com/zan-maker/resilient-agent.git
+git clone https://github.com/icohangar-ops/resilient-agent.git
 cd resilient-agent
 pip install -r requirements.txt
 cp .env.example .env  # Add your TrueFoundry API key

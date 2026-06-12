@@ -83,7 +83,7 @@ SwarmFi Perps was built as a US-friendly alternative to Hyperliquid-based tools,
 
 ```bash
 # Clone the repository
-git clone https://github.com/zan-maker/swarmfi-perps.git
+git clone https://github.com/icohangar-ops/swarmfi-perps.git
 cd swarmfi-perps
 
 # Install dependencies

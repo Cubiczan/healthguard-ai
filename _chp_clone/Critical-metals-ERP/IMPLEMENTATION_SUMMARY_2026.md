@@ -1,7 +1,7 @@
 # 🎉 Battery ERP - Complete Implementation Summary
 
 **Date**: April 30, 2026  
-**Repository**: https://github.com/zan-maker/battery-erp  
+**Repository**: https://github.com/icohangar-ops/battery-erp  
 **Status**: ✅ Production Ready with Mobile App
 
 ---
@@ -234,7 +234,7 @@ mobile/
 
 ```bash
 # Clone repository
-git clone https://github.com/zan-maker/battery-erp.git
+git clone https://github.com/icohangar-ops/battery-erp.git
 cd battery-erp
 
 # Install dependencies
@@ -332,11 +332,11 @@ npm run android
 
 | Resource | URL |
 |----------|-----|
-| **Repository** | https://github.com/zan-maker/battery-erp |
-| **Issues** | https://github.com/zan-maker/battery-erp/issues |
-| **Pull Requests** | https://github.com/zan-maker/battery-erp/pulls |
-| **Actions** | https://github.com/zan-maker/battery-erp/actions |
-| **Security** | https://github.com/zan-maker/battery-erp/security |
+| **Repository** | https://github.com/icohangar-ops/battery-erp |
+| **Issues** | https://github.com/icohangar-ops/battery-erp/issues |
+| **Pull Requests** | https://github.com/icohangar-ops/battery-erp/pulls |
+| **Actions** | https://github.com/icohangar-ops/battery-erp/actions |
+| **Security** | https://github.com/icohangar-ops/battery-erp/security |
 
 ---
 
@@ -390,7 +390,7 @@ See [NOTICE](./NOTICE) for full attribution details.
 ## 📞 Support
 
 - **Documentation**: See `/docs` directory
-- **Issues**: https://github.com/zan-maker/battery-erp/issues
+- **Issues**: https://github.com/icohangar-ops/battery-erp/issues
 - **Email**: sam@cubiczan.com
 - **Security**: security@battery-recycling.com
 

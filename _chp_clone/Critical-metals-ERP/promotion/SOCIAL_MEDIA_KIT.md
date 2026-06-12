@@ -14,7 +14,7 @@
 
 100% Open Source (AGPL-3.0)
 
-🔗 https://github.com/zan-maker/battery-erp
+🔗 https://github.com/icohangar-ops/battery-erp
 
 #OpenSource #BatteryRecycling #ERP #Sustainability #CleanTech
 ```
@@ -31,7 +31,7 @@
 
 Built with React Native + Expo
 
-Try it: https://github.com/zan-maker/battery-erp
+Try it: https://github.com/icohangar-ops/battery-erp
 
 #ReactNative #Mobile #IoT #Industry40
 ```
@@ -48,7 +48,7 @@ Try it: https://github.com/zan-maker/battery-erp
 
 No black box - explainable AI!
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #MachineLearning #AI #PredictiveMaintenance #Quality
 ```
@@ -65,7 +65,7 @@ Battery recycling is critical for:
 
 Our open-source ERP makes recycling operations efficient & compliant.
 
-Join the mission: https://github.com/zan-maker/battery-erp
+Join the mission: https://github.com/icohangar-ops/battery-erp
 
 #Sustainability #ClimateAction #CircularEconomy #EV
 ```
@@ -84,7 +84,7 @@ Deploy: Docker + Kubernetes
 
 25,000+ lines of open-source code!
 
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #NodeJS #React #TypeScript #OpenSource
 ```
@@ -102,7 +102,7 @@ Areas we need help:
 
 Great first-contrib project! Well-documented + friendly maintainers.
 
-Start here: https://github.com/zan-maker/battery-erp/issues
+Start here: https://github.com/icohangar-ops/battery-erp/issues
 
 #Hacktoberfest #FirstContribution #OpenSource
 ```
@@ -144,7 +144,7 @@ Looking for:
 • Contributors (developers, translators)
 • Feedback on features
 
-Check it out: https://github.com/zan-maker/battery-erp
+Check it out: https://github.com/icohangar-ops/battery-erp
 
 #BatteryRecycling #OpenSource #ERP #Sustainability #CleanTech #Manufacturing #SoftwareDevelopment
 ```
@@ -173,7 +173,7 @@ That's why I built Battery ERP - open-source software designed specifically for 
 The best part? It's 100% free and open-source (AGPL-3.0).
 
 If you're in the battery recycling space, I'd love your feedback:
-https://github.com/zan-maker/battery-erp
+https://github.com/icohangar-ops/battery-erp
 
 #BatteryRecycling #Manufacturing #Software #Sustainability #Industry40
 ```
@@ -218,7 +218,7 @@ Battery recycling is critical for the EV revolution and circular economy, but mo
 - Contributors (bug fixes, docs, tests, translations)
 - Feedback on features and UX
 
-**Repo:** https://github.com/zan-maker/battery-erp
+**Repo:** https://github.com/icohangar-ops/battery-erp
 
 **Demo video:** [Add YouTube link]
 
@@ -255,7 +255,7 @@ I built an open-source ERP system specifically for battery recycling facilities 
 
 It's completely free (AGPL-3.0) and I'm looking for feedback from people in the battery space.
 
-Check it out: https://github.com/zan-maker/battery-erp
+Check it out: https://github.com/icohangar-ops/battery-erp
 
 Would love to hear what features would be most useful for your operations!
 ```
@@ -304,7 +304,7 @@ A complete enterprise resource planning system for battery recycling operations.
 - Databases: Astra DB, MariaDB, PostgreSQL
 - CI/CD: GitHub Actions
 
-**Repo:** https://github.com/zan-maker/battery-erp
+**Repo:** https://github.com/icohangar-ops/battery-erp
 
 Happy to answer questions about the architecture, implementation decisions, or battery recycling domain!
 ```
@@ -335,7 +335,7 @@ I wanted to share an open-source project that might interest this community:
 
 **Looking for:** Beta testers, contributors, feedback
 
-**Repo:** https://github.com/zan-maker/battery-erp
+**Repo:** https://github.com/icohangar-ops/battery-erp
 **Demo:** [YouTube link]
 
 It's AGPL-3.0 licensed and completely free. Would love feedback from this community!

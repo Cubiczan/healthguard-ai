@@ -195,7 +195,7 @@ minescope/
 
 ## 🎥 Demo Video
 
-> 🔗 [Demo Video — GitHub Releases](https://github.com/zan-maker/minescope/releases/tag/v1.0.0)
+> 🔗 [Demo Video — GitHub Releases](https://github.com/icohangar-ops/Minescope/releases/tag/v1.0.0)
 >
 > Shows the MineScope React dashboard prototype that inspired the AWS cloud architecture.
 

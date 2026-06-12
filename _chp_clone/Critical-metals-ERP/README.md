@@ -462,8 +462,8 @@ git push origin feature/your-feature
 ## 📞 Support
 
 - **Documentation**: https://docs.battery-erp.com
-- **Issues**: https://github.com/zan-maker/battery-erp/issues
-- **Discussions**: https://github.com/zan-maker/battery-erp/discussions
+- **Issues**: https://github.com/icohangar-ops/battery-erp/issues
+- **Discussions**: https://github.com/icohangar-ops/battery-erp/discussions
 - **Email**: sam@cubiczan.com
 
 ---

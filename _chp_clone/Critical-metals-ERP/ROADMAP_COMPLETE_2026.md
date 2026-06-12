@@ -1,7 +1,7 @@
 # 🎉 Battery ERP - 2026 Roadmap COMPLETE!
 
 **Date**: April 30, 2026  
-**Repository**: https://github.com/zan-maker/battery-erp  
+**Repository**: https://github.com/icohangar-ops/battery-erp  
 **Status**: ✅ ALL 2026 ROADMAP ITEMS COMPLETE
 
 ---
@@ -394,7 +394,7 @@ Total: ~25,000+ lines
 
 ### Documentation
 
-- **Main README**: https://github.com/zan-maker/battery-erp
+- **Main README**: https://github.com/icohangar-ops/battery-erp
 - **Mobile Testing Guide**: mobile/TESTING_GUIDE.md
 - **Deployment Guide**: docs/DEPLOYMENT.md
 - **API Reference**: docs/API.md
@@ -402,8 +402,8 @@ Total: ~25,000+ lines
 
 ### Contact
 
-- **GitHub Issues**: https://github.com/zan-maker/battery-erp/issues
-- **Discussions**: https://github.com/zan-maker/battery-erp/discussions
+- **GitHub Issues**: https://github.com/icohangar-ops/battery-erp/issues
+- **Discussions**: https://github.com/icohangar-ops/battery-erp/discussions
 - **Email**: sam@cubiczan.com
 
 ---

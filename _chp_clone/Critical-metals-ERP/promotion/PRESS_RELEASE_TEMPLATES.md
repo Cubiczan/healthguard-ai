@@ -22,7 +22,7 @@ Key features include:
 
 The software is built on modern technology including Node.js, React, TypeScript, and React Native. With over 25,000 lines of code, it represents one of the most comprehensive open-source ERP systems for a specialized manufacturing vertical.
 
-Battery ERP is available now under the AGPL-3.0 license at https://github.com/zan-maker/battery-erp
+Battery ERP is available now under the AGPL-3.0 license at https://github.com/icohangar-ops/battery-erp
 
 The project is seeking beta testers, contributors, and feedback from the battery recycling industry.
 
@@ -66,7 +66,7 @@ By making advanced operational software accessible to recyclers of all sizes, Ba
 - Support circular economy for critical minerals
 - Enable smaller players to enter the recycling market
 
-Battery ERP is available at https://github.com/zan-maker/battery-erp
+Battery ERP is available at https://github.com/icohangar-ops/battery-erp
 
 **Media Contact:**
 [Your Name]
@@ -117,17 +117,17 @@ The project is seeking contributors in several areas:
 - Performance optimization
 
 **For Developers:**
-- Repository: https://github.com/zan-maker/battery-erp
-- Documentation: https://github.com/zan-maker/battery-erp/tree/main/docs
-- Contributing Guide: https://github.com/zan-maker/battery-erp/blob/main/CONTRIBUTING.md
-- Issues: https://github.com/zan-maker/battery-erp/issues
+- Repository: https://github.com/icohangar-ops/battery-erp
+- Documentation: https://github.com/icohangar-ops/battery-erp/tree/main/docs
+- Contributing Guide: https://github.com/icohangar-ops/battery-erp/blob/main/CONTRIBUTING.md
+- Issues: https://github.com/icohangar-ops/battery-erp/issues
 
 The project is licensed under AGPL-3.0.
 
 **Media Contact:**
 [Your Name]
 sam@cubiczan.com
-GitHub: https://github.com/zan-maker
+GitHub: https://github.com/icohangar-ops
 
 ---
 
@@ -182,9 +182,9 @@ The system integrates with existing business software:
 Battery ERP is being used by [any beta testers, or "is seeking beta testers"]. The software is free under the AGPL-3.0 open-source license.
 
 **For More Information:**
-- Website: https://github.com/zan-maker/battery-erp
+- Website: https://github.com/icohangar-ops/battery-erp
 - Demo: [YouTube link]
-- Documentation: https://github.com/zan-maker/battery-erp/tree/main/docs
+- Documentation: https://github.com/icohangar-ops/battery-erp/tree/main/docs
 
 **Media Contact:**
 [Your Name]
@@ -261,7 +261,7 @@ Would you be interested in covering this? I can provide:
 - Access to the development team
 - Customer references (if applicable)
 
-Repository: https://github.com/zan-maker/battery-erp
+Repository: https://github.com/icohangar-ops/battery-erp
 
 Best regards,
 [Your Name]
@@ -289,7 +289,7 @@ I know you're busy, so I'll keep this brief. The story angles that might interes
 
 Happy to provide a demo, screenshots, or connect you with beta testers.
 
-Repository: https://github.com/zan-maker/battery-erp
+Repository: https://github.com/icohangar-ops/battery-erp
 
 Best,
 [Your Name]
