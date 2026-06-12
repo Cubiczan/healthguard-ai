@@ -37,6 +37,32 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "_chp_clone",
+    "mineral-review",
+    "sec-earnings-workbench",
+    "battery-erp",
+    "Commodity-Price-Analyzer",
+    "FinFlowRL",
+    "abo-checkout",
+    "autonomous-business-os",
+    "cfo-resilience-matrix",
+    "closed-loop-finance",
+    "courtvision-ai",
+    "greenverify-ai",
+    "metacomp-visionx-dashboard",
+    "metal-monitor",
+    "minescope-signal",
+    "mini-services",
+    "resilient-agent",
+    "zan-finflowrl",
+    "forge-apps",
+    "download",
+    "upload",
+    "examples",
+    "target",
+    ".zscripts",
+    "db",
+    "docs"
   ]
 }

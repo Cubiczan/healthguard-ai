@@ -161,7 +161,7 @@ export default function HealthGuardPage() {
                 <DashboardTab />
               </TabsContent>
               <TabsContent value="assistant" className="mt-0">
-                <AssistantTab patients={[]} />
+                <AssistantTab />
               </TabsContent>
               <TabsContent value="patients" className="mt-0">
                 <PatientsTab />

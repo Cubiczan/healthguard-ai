@@ -44,3 +44,27 @@ model Alert {
   acknowledged Boolean  @default(false)
   createdAt    DateTime @default(now())
 }
+
+model Incident {
+  id           String   @id @default(cuid())
+  severity     String
+  status       String   @default("open")
+  title        String
+  description  String
+  sourceIndex  String
+  assignedTeam String
+  rawEvent     String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  userRole  String
+  action    String
+  resource  String
+  decision  String
+  reason    String
+  timestamp DateTime @default(now())
+}

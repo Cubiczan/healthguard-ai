@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import ZAI from 'z-ai-web-dev-sdk';
+import ZAI, { type ChatMessage } from 'z-ai-web-dev-sdk';
 
 const zai = await ZAI.create();
 
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { messages, patientContext } = body as {
-      messages: Array<{ role: string; content: string }>;
+      messages: Array<{ role: ChatMessage['role']; content: string }>;
       patientContext?: string;
     };
 
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
       ? `\n\n---\n**Current Patient Context:**\n${patientContext}\n---\nConsider this patient data in your response. Remember to never diagnose.`
       : '';
 
-    const fullMessages = [
+    const fullMessages: ChatMessage[] = [
       { role: 'system', content: SYSTEM_PROMPT + contextBlock },
       ...messages.map(m => ({ role: m.role, content: m.content })),
     ];
