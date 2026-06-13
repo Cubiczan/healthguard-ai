@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const METACOMP_BASE = "https://www.metacomp.ai";
-const METACOMP_API_KEY = "sk-e536a4279ab7796ca3afd11a3e532ef160bcffcd1380f2005408c748c846aaea";
+const METACOMP_API_KEY = process.env.METACOMP_API_KEY ?? "";
 
 export async function POST(request: NextRequest) {
   try {
