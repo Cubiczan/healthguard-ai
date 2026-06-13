@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import ZAI, { type ChatMessage } from 'z-ai-web-dev-sdk';
+import { retry, withTimeout } from '@/lib/resilience';
+import { requirePatientAuth } from '@/lib/require-patient-auth';
 
 const zai = await ZAI.create();
 
@@ -24,6 +26,9 @@ NORMAL VITALS RANGES (for reference):
 Format your responses using markdown for clarity.`;
 
 export async function POST(request: Request) {
+  const unauthorized = requirePatientAuth(request);
+  if (unauthorized) return unauthorized;
+
   try {
     const body = await request.json();
     const { messages, patientContext } = body as {
@@ -44,10 +49,22 @@ export async function POST(request: Request) {
       ...messages.map(m => ({ role: m.role, content: m.content })),
     ];
 
-    const completion = await zai.chat.completions.create({
-      messages: fullMessages,
-      max_tokens: 1500,
-    });
+    // Resilient model call: each attempt is bounded by a 20s timeout, with up
+    // to 2 retries (3 attempts total) and exponential backoff + jitter on
+    // transient failures. Exhausted/failed calls fall through to the graceful
+    // fallback in the catch block below.
+    const completion = await retry(
+      () =>
+        withTimeout(
+          zai.chat.completions.create({
+            messages: fullMessages,
+            max_tokens: 1500,
+          }),
+          20_000,
+          'gemini chat completion',
+        ),
+      { maxAttempts: 3 },
+    );
 
     const assistantMessage = completion.choices[0]?.message?.content || 'I apologize, but I was unable to generate a response. Please try again.';
 

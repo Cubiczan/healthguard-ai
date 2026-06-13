@@ -4,6 +4,23 @@
 
 export type UserRole = 'soc_tier1' | 'soc_tier2' | 'sre' | 'contractor' | 'ai_agent';
 
+// Server-side allowlist of recognized roles. Routes must validate the
+// client-supplied role against this rather than trusting an arbitrary string
+// cast to UserRole — an unknown value is rejected at the boundary instead of
+// being passed into the permission engine.
+export const VALID_ROLES: readonly UserRole[] = [
+  'soc_tier1',
+  'soc_tier2',
+  'sre',
+  'contractor',
+  'ai_agent',
+];
+
+/** Type guard: true only for a known, server-recognized role. */
+export function isValidRole(value: unknown): value is UserRole {
+  return typeof value === 'string' && (VALID_ROLES as readonly string[]).includes(value);
+}
+
 export interface PermissionCheck {
   resource: { objectType: string; objectId: string };
   permission: string;

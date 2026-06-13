@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
+import { requirePatientAuth } from '@/lib/require-patient-auth';
 
 // GET /api/patients — List all patients with latest vitals and alert count
-export async function GET() {
+export async function GET(request: Request) {
+  const unauthorized = requirePatientAuth(request);
+  if (unauthorized) return unauthorized;
+
   try {
     const patients = await db.patient.findMany({
       orderBy: { createdAt: 'desc' },
@@ -39,6 +43,9 @@ export async function GET() {
 
 // POST /api/patients — Create new patient
 export async function POST(request: Request) {
+  const unauthorized = requirePatientAuth(request);
+  if (unauthorized) return unauthorized;
+
   try {
     const body = await request.json();
     const { name, age, gender, conditions, medications } = body;

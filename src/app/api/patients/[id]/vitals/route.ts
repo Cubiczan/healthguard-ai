@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
+import { requirePatientAuth } from '@/lib/require-patient-auth';
 
 // GET /api/patients/[id]/vitals — Get vitals history for a patient
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const unauthorized = requirePatientAuth(request);
+  if (unauthorized) return unauthorized;
+
   try {
     const { id } = await params;
 
@@ -38,6 +42,9 @@ export async function POST(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const unauthorized = requirePatientAuth(request);
+  if (unauthorized) return unauthorized;
+
   try {
     const { id } = await params;
     const body = await request.json();

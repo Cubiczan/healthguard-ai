@@ -1,14 +1,20 @@
 import { NextResponse } from 'next/server';
 import { simulateSplunkQuery, redactEvents } from '@/lib/splunk-sim';
-import { checkToolPermission, type UserRole } from '@/lib/authz';
+import { checkToolPermission, isValidRole } from '@/lib/authz';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { spl, index, role } = body as { spl: string; index?: string; role: UserRole };
+    const { spl, index, role } = body as { spl: string; index?: string; role: unknown };
 
     if (!spl || !role) {
       return NextResponse.json({ error: 'spl and role are required' }, { status: 400 });
+    }
+
+    // Validate the client-supplied role server-side before it reaches the
+    // permission engine — never trust the raw value.
+    if (!isValidRole(role)) {
+      return NextResponse.json({ error: 'Invalid role' }, { status: 400 });
     }
 
     // Step 1: AuthZed permission check
