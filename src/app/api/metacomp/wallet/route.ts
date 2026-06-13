@@ -1,10 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const METACOMP_BASE = "https://www.metacomp.ai";
-const METACOMP_API_KEY = process.env.METACOMP_API_KEY ?? "";
 
 export async function POST(request: NextRequest) {
   try {
+    const METACOMP_API_KEY = process.env.METACOMP_API_KEY;
+    if (!METACOMP_API_KEY) {
+      console.error("METACOMP_API_KEY is not configured");
+      return NextResponse.json(
+        { error: "MetaComp integration is not configured" },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json();
     const { network, address } = body;
 
