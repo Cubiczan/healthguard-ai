@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { requirePatientAuth } from '@/lib/require-patient-auth';
+import { scoreVitals } from '@/lib/vitals-scoring';
 
 // GET /api/patients/[id]/vitals — Get vitals history for a patient
 export async function GET(
@@ -62,65 +63,9 @@ export async function POST(
       },
     });
 
-    // Auto-generate alerts for abnormal vitals
-    const newAlerts: Array<{ type: string; category: string; message: string; severity: number }> = [];
-
-    if (systolic >= 160 || diastolic >= 100) {
-      newAlerts.push({
-        type: 'critical',
-        category: 'vitals',
-        message: `Severely elevated BP detected: ${systolic}/${diastolic} mmHg. Hypertensive crisis possible. Immediate physician review required.`,
-        severity: 5,
-      });
-    } else if (systolic >= 140 || diastolic >= 90) {
-      newAlerts.push({
-        type: 'warning',
-        category: 'vitals',
-        message: `Elevated BP reading: ${systolic}/${diastolic} mmHg. Consider medication review.`,
-        severity: 3,
-      });
-    }
-
-    if (heartRate > 110) {
-      newAlerts.push({
-        type: 'warning',
-        category: 'vitals',
-        message: `Tachycardia detected: ${heartRate} bpm. Evaluate for underlying cause.`,
-        severity: 3,
-      });
-    } else if (heartRate < 55) {
-      newAlerts.push({
-        type: 'warning',
-        category: 'vitals',
-        message: `Bradycardia detected: ${heartRate} bpm. Assess for symptoms.`,
-        severity: 3,
-      });
-    }
-
-    if (spo2 < 90) {
-      newAlerts.push({
-        type: 'critical',
-        category: 'vitals',
-        message: `Critically low SpO2: ${spo2}%. Immediate intervention needed.`,
-        severity: 5,
-      });
-    } else if (spo2 < 93) {
-      newAlerts.push({
-        type: 'warning',
-        category: 'vitals',
-        message: `Low SpO2 reading: ${spo2}%. Monitor closely.`,
-        severity: 3,
-      });
-    }
-
-    if (temperature >= 101.0) {
-      newAlerts.push({
-        type: 'warning',
-        category: 'vitals',
-        message: `Fever detected: ${temperature}°F. Evaluate for infection.`,
-        severity: 3,
-      });
-    }
+    // Auto-generate alerts for abnormal vitals. Scoring is delegated to the
+    // pure, unit-tested helper in '@/lib/vitals-scoring'.
+    const newAlerts = scoreVitals({ heartRate, systolic, diastolic, temperature, spo2 });
 
     for (const alert of newAlerts) {
       await db.alert.create({
