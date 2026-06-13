@@ -359,7 +359,7 @@ CritMin Oracle is purpose-built for HashKey Chain because:
 
 ## 🔗 Links
 
-- **GitHub**: [github.com/zan-maker/critmin-oracle](https://github.com/icohangar-ops/critmin-oracle)
+- **GitHub**: [github.com/icohangar-ops/critmin-oracle](https://github.com/icohangar-ops/critmin-oracle)
 - **Contract**: Deployed on HashKey Chain Testnet (Chain ID: 133)
 - **Explorer**: [testnet-explorer.hsk.xyz](https://testnet-explorer.hsk.xyz)
 

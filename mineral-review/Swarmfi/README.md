@@ -237,7 +237,7 @@ Category: **Agents + Tokenization** — AI agents with onchain identity and econ
 <<<<<<< HEAD
 github.com/zan-maker/swarmfi-solana
 =======
-github.com/zan-maker/swarmfi
+github.com/icohangar-ops/swarmfi
 
 ---
 
