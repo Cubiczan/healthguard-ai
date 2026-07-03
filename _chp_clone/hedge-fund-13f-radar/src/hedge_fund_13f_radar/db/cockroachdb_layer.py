@@ -11,8 +11,11 @@ from sqlalchemy.dialects.postgresql import JSONB
 
 logger = logging.getLogger("hedge_fund_13f_radar.db")
 
-COCKROACH_URL = "cockroachdb+psycopg2://cubiczan:oY-hPkgXtZjc6kGqY67Gyg@vortex-giraffe-15678.jxf.gcp-us-east1.cockroachlabs.cloud:26257/hedge_fund_13f_radar?sslmode=require"
-DATABASE_URL = os.getenv("HFR_DATABASE_URL", COCKROACH_URL)
+# Connection string is read from the environment so credentials are never
+# committed to source control.
+DATABASE_URL = os.getenv("HFR_DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError("HFR_DATABASE_URL environment variable is required")
 engine = create_engine(DATABASE_URL, pool_size=8, max_overflow=4, pool_timeout=30, pool_pre_ping=True)
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
 

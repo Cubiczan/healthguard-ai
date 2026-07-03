@@ -1,10 +1,12 @@
 """Seed test data into all CockroachDB databases."""
 from __future__ import annotations
 import json
+import os
 from datetime import date, datetime
 from decimal import Decimal
 
-COCKROACH_BASE = "cockroachdb+psycopg2://cubiczan:oY-hPkgXtZjc6kGqY67Gyg@vortex-giraffe-15678.jxf.gcp-us-east1.cockroachlabs.cloud:26257/"
+# Base connection URL must come from the environment; never commit credentials.
+COCKROACH_BASE = os.environ["COCKROACH_BASE_URL"]
 
 
 def _exec(conn, sql, params=None):

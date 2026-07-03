@@ -49,7 +49,7 @@ COCKROACH_HOST = os.getenv(
 )
 COCKROACH_PORT = os.getenv("COCKROACH_PORT", "26257")
 COCKROACH_USER = os.getenv("COCKROACH_USER", "cubiczan")
-COCKROACH_PASSWORD = os.getenv("COCKROACH_PASSWORD", "oY-hPkgXtZjc6kGqY67Gyg")
+COCKROACH_PASSWORD = os.environ["COCKROACH_PASSWORD"]  # required; no committed default
 COCKROACH_SSL = os.getenv("COCKROACH_SSL", "require")
 
 DATABASES = [
