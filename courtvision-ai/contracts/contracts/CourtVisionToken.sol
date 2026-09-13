@@ -71,11 +71,20 @@ contract CourtVisionToken is ERC20, ERC20Burnable, Ownable, ReentrancyGuard {
         if (stakedBalance[msg.sender] < amount) revert InsufficientBalance();
 
         _updateRewards();
-        _claimRewards();
+        
+        // Only claim rewards if there are pending rewards to avoid revert on zero
+        uint256 pending = (stakedBalance[msg.sender] * accRewardPerShare) / 1e18
+                          - rewardDebt[msg.sender];
+        if (pending > 0) {
+            _claimRewards();
+        }
 
         stakedBalance[msg.sender] -= amount;
         totalStaked -= amount;
         stakeTimestamp[msg.sender] = block.timestamp;
+        
+        // Update reward debt after unstaking to reflect new staked balance
+        rewardDebt[msg.sender] = (stakedBalance[msg.sender] * accRewardPerShare) / 1e18;
 
         _transfer(address(this), msg.sender, amount);
 
@@ -133,7 +142,13 @@ contract CourtVisionToken is ERC20, ERC20Burnable, Ownable, ReentrancyGuard {
     }
 
     function _updateRewards() internal {
-        if (block.number <= lastRewardBlock || totalStaked == 0) return;
+        if (block.number <= lastRewardBlock) return;
+
+        // Always update lastRewardBlock to prevent crediting empty intervals
+        if (totalStaked == 0) {
+            lastRewardBlock = block.number;
+            return;
+        }
 
         uint256 blocks = block.number - lastRewardBlock;
         uint256 rewards = (blocks * REWARD_RATE * totalStaked) / 10000;
